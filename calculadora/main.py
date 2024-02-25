@@ -147,22 +147,4 @@ calculadora()
 
 
 
-'''
-        operadores = ('+','-','*','/','**')
-        operation = input('ingresa tu operación =>')
-        
-        for x in range(0,int(N_operaciones)):
-            suma_in = operation.index('+')
-            rest_in = operation.index('-')
-            mult_in = operation.index('*')
-            div_in = operation.index('/')
-            index_operations = [suma_in,rest_in,mult_in,div_in].sort()
 
-            for i in index_operations:
-                if 0 in index_operations:
-                    index_operations.remove(0)
-            if len(index_operations) > 1:
-                operation[0:index_operations[0]]
-
-            
-'''
