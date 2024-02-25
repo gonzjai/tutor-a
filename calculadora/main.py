@@ -34,96 +34,104 @@ def recolectar_operadores(operacion):
 def calculos(operation,signos):
     
     counter = 0
-    for x in range(0,len(signos)):
-        # este if es solo para la primera ves del siclo for
-        # con este if me aseguro de separarlo en dos posibilidades
-        # 1° que la cantidad de signos que hay en el ejercicio sea > 1
-        # 2° que la cantidad de signos que hay en el ejercicio sea = 1
-        if counter == 0:
-            if not (len(signos) == 1):
-                if operation[signos[0]] == '+':
-                    calculo = int(operation[0:signos[0]]) + int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo
-                elif operation[signos[0]] == '-':
-                    calculo = int(operation[0:signos[0]]) - int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo                    elif operation[signos[0]] == '*':
-                    calculo = int(operation[0:signos[0]]) * int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo
-                elif operation[signos[0]] == '/':
-                    calculo = int(operation[0:signos[0]]) / int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo
-            elif len(signos) == 1:
-                if operation[signos[0]] == '+':
-                    calculo = int(operation[0:signos[0]]) + int(operation[signos[0]+1:])
-                    to_continue = calculo
-                elif operation[signos[0]] == '-':
-                    calculo = int(operation[0:signos[0]]) - int(operation[signos[0]+1:])
-                    to_continue = calculo
-                elif operation[signos[0]] == '*':
-                    calculo = int(operation[0:signos[0]]) * int(operation[signos[0]+1:])
-                    to_continue = calculo
-                elif operation[signos[0]] == '/':
-                    calculo = int(operation[0:signos[0]]) / int(operation[signos[0]+1:])
-                    to_continue = calculo
+    if len(signos) >= 1:
+        for x in range(0,len(signos)):
+            # este if es solo para la primera ves del siclo for
+            # con este if me aseguro de separarlo en dos posibilidades
+            # 1° que la cantidad de signos que hay en el ejercicio sea > 1
+            # 2° que la cantidad de signos que hay en el ejercicio sea = 1
+            if counter == 0:
+                if not (len(signos) == 1):
+                    if operation[signos[0]] == '+':
+                        calculo = int(operation[0:signos[0]]) + int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '-':
+                        calculo = int(operation[0:signos[0]]) - int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo                    
+                    elif operation[signos[0]] == '*':
+                        calculo = int(operation[0:signos[0]]) * int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '/':
+                        calculo = int(operation[0:signos[0]]) / int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo
+                elif len(signos) == 1:
+                    if operation[signos[0]] == '+':
+                        calculo = int(operation[0:signos[0]]) + int(operation[signos[0]+1:])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '-':
+                        calculo = int(operation[0:signos[0]]) - int(operation[signos[0]+1:])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '*':
+                        calculo = int(operation[0:signos[0]]) * int(operation[signos[0]+1:])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '/':
+                        calculo = int(operation[0:signos[0]]) / int(operation[signos[0]+1:])
+                        to_continue = calculo
+                
+                # este if se usa cuando el siclo for se ejecuta mas de una vez
+                # se divide en dos posibilidades ya que al finalizar el ciclo elimino 
+                    # de la lista signos el primer elemento
+                # 1° que la cantidan de signos que faltan por iterar sea = 1
+                # 2° que la cantidad de signos que falta por iterar sea > 1       
+            if not (counter == 0):
             
-            # este if se usa cuando el siclo for se ejecuta mas de una vez
-            # se divide en dos posibilidades ya que al finalizar el ciclo elimino 
-                   # de la lista signos el primer elemento
-            # 1° que la cantidan de signos que faltan por iterar sea = 1
-            # 2° que la cantidad de signos que falta por iterar sea > 1       
-        if not (counter == 0):
-        
-            if len(signos) == 1:
-                if operation[signos[0]] == '+':
-                    calculo = to_continue + int(operation[signos[0]+1:])
-                    to_continue = calculo
-                elif operation[signos[0]] == '-':
-                    calculo = to_continue - int(operation[signos[0]+1:])
-                    to_continue = calculo
-                elif operation[signos[0]] == '*':
-                    calculo = to_continue * int(operation[signos[0]+1:])
-                    to_continue = calculo
-                elif operation[signos[0]] == '/':
-                    calculo = to_continue / int(operation[signos[0]+1:])
-                    to_continue = calculo
+                if len(signos) == 1:
+                    if operation[signos[0]] == '+':
+                        calculo = to_continue + int(operation[signos[0]+1:])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '-':
+                        calculo = to_continue - int(operation[signos[0]+1:])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '*':
+                        calculo = to_continue * int(operation[signos[0]+1:])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '/':
+                        calculo = to_continue / int(operation[signos[0]+1:])
+                        to_continue = calculo
 
-            if not (len(signos) == 1):
-                if operation[signos[0]] == '+':
-                    calculo = to_continue + int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo
-                elif operation[signos[0]] == '-':
-                    calculo = to_continue - int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo
-                elif operation[signos[0]] == '*':
-                    calculo = to_continue * int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo
-                elif operation[signos[0]] == '/':
-                    calculo = to_continue / int(operation[signos[0]+1:signos[1]])
-                    to_continue = calculo    
-        signos.pop(0)
-        counter += 1
+                if not (len(signos) == 1):
+                    if operation[signos[0]] == '+':
+                        calculo = to_continue + int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '-':
+                        calculo = to_continue - int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '*':
+                        calculo = to_continue * int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo
+                    elif operation[signos[0]] == '/':
+                        calculo = to_continue / int(operation[signos[0]+1:signos[1]])
+                        to_continue = calculo    
+            signos.pop(0)
+            counter += 1
     return to_continue
 
 
 
 
 
-
+#con esta funcion ejecuto toda la logica de la  calculadora
+# 1° pregunto si va a hacer algún calculo
+# 2° propongo las reglas de uso
+# 3° ingreso de la operación
+# 4° recolecto en una lista ordenada el index de cada sigo usado
+# 5° ejecuto los calculos ingresandole los parametros requeridos ya recolectados
 def calculadora():
+
+# 1°
     para_iniciar = input('¿Quieres hacer algún calculo?(si ó no)')
 
-    
-
     if para_iniciar == 'si':
-                               # propongo las reglas de uso 
+# 2°
         reglas()              
         
-                               # ingresa el problema
+# 3°
         operation = input('ingresa tu operación =>')
                  
-                               # recolecto los operadores usados con su respectivo index
+# 4°
         signos = recolectar_operadores(operation)
-        
+
+# 5°        
         calculo_total = calculos(operation,signos)
         print(calculo_total)
         
