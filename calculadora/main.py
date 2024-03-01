@@ -13,7 +13,7 @@ def reglas():
 
 
 # con ésta función recolecto los el index de cada operador usado
-# y le aplico un sor para que queden en su debido orden
+# y le aplico un sort para que queden en su debido orden
     
 def recolectar_operadores(operacion):
     operadores = []
